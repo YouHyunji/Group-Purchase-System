@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "104739364854",
+    "project_id": "group-purchase-app-b2204",
+    "storage_bucket": "group-purchase-app-b2204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104739364854:android:33c57868172d749f5d71d7",
+        "android_client_info": {
+          "package_name": "com.example.group_purchase_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwqPKyuXqKdP4z9c3NvfYPa4EBT4XmJvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
