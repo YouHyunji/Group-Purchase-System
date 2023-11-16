@@ -91,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
-                                                        startToast("회원가입 성공");
+                                                        startToast("김승진 성공");
                                                         finish();       // 화면 종료
                                                         myStartActivity(MainActivity.class);   // Main 화면 이동
                                                     }
