@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.example.group_purchase_system"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -43,4 +43,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     // FireBase Auth
     implementation("com.google.firebase:firebase-auth")
+    // FireStore
+    implementation("com.google.firebase:firebase-firestore")
 }
