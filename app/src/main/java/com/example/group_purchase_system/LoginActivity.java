@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {      // 로그인 성공했을 때 실행 로직
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startToast("문혜준");
+                                startToast("로그인 성공");
                                 myStartActivity(MainActivity.class); // 메인 화면 이동
                                 //updateUI(user);
                             } else {
