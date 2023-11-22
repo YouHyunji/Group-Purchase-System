@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".Major_Category" />
+        <activity android:name=".Object_Category" />
     </application>
 
 </manifest>
