@@ -96,6 +96,7 @@ public class Object_Category extends AppCompatActivity {
 
                     // 선택한 항목의 정보를 Intent에 담아 Board_List.Class를 시작
                     Intent intent = new Intent(Object_Category.this, Board_List.class);
+                    intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
                     intent.putExtra("selected_Object", selected_Object);    // 물품 이름 전달
 
                     Log.d(TAG, "전달한 학과 이름 : " + selected_Major);
