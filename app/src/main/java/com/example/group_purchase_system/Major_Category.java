@@ -45,12 +45,12 @@ public class Major_Category extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_major_category);
+        setContentView(R.layout.activity_basic_category);
 
         startToast("학과를 선택하세요.");
 
         // 리스트뷰와 어댑터 초기화
-        listView = (ListView) findViewById(R.id.Major_List);
+        listView = (ListView) findViewById(R.id.List);
 
         // 카테고리 목록 불러오기
         CategoryLoad();
