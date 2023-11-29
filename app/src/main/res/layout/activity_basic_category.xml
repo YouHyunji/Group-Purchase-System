@@ -7,7 +7,7 @@
 
 
     <ListView
-        android:id="@+id/Major_List"
+        android:id="@+id/List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>
