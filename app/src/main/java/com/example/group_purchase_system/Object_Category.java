@@ -95,7 +95,7 @@ public class Object_Category extends AppCompatActivity {
                     String selected_Object = ObjectRef.getName();
 
                     // 선택한 항목의 정보를 Intent에 담아 Board_List.Class를 시작
-                    Intent intent = new Intent(Object_Category.this, Board_List.class);
+                    Intent intent = new Intent(Object_Category.this, PostActivity.class);
                     intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
                     intent.putExtra("selected_Object", selected_Object);    // 물품 이름 전달
 
