@@ -14,6 +14,13 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="190dp"
         tools:layout_editor_absoluteY="50dp">
+      <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#CBD5DD"
+            android:text="로그아웃"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/logoutButton"
