@@ -108,8 +108,8 @@
 
             <Button
                 android:id="@+id/latest1button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
+                android:layout_width="229dp"
+                android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:text="게시글 제목을 입력하시오"
@@ -118,7 +118,7 @@
 
             <TextView
                 android:id="@+id/latest1date"
-                android:layout_width="90dp"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="생성날짜"
@@ -126,6 +126,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/latest1limit"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="제한"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="-109dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -144,8 +155,8 @@
 
             <Button
                 android:id="@+id/latest2button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
+                android:layout_width="229dp"
+                android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:text="게시글 제목을 입력하시오"
@@ -154,14 +165,28 @@
 
             <TextView
                 android:id="@+id/latest2date"
-                android:layout_width="90dp"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="생성날짜"
                 android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latest2limit"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="제한"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="-109dp"/>
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -179,8 +204,8 @@
 
             <Button
                 android:id="@+id/latest3button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
+                android:layout_width="229dp"
+                android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:text="게시글 제목을 입력하시오"
@@ -189,14 +214,27 @@
 
             <TextView
                 android:id="@+id/latest3date"
-                android:layout_width="90dp"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="생성날짜"
                 android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latest3limit"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="제한"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="-109dp"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,8 +252,8 @@
 
             <Button
                 android:id="@+id/latest4button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
+                android:layout_width="229dp"
+                android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:text="게시글 제목을 입력하시오"
@@ -224,14 +262,27 @@
 
             <TextView
                 android:id="@+id/latest4date"
-                android:layout_width="90dp"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="생성날짜"
                 android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/latest4limit"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="제한"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="-109dp"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -249,8 +300,8 @@
 
             <Button
                 android:id="@+id/latest5button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
+                android:layout_width="229dp"
+                android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:text="게시글 제목을 입력하시오"
@@ -259,83 +310,25 @@
 
             <TextView
                 android:id="@+id/latest5date"
-                android:layout_width="90dp"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="생성날짜"
                 android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest6text"
-                android:layout_width="40dp"
+                android:id="@+id/latest5limit"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:text="제한"
+                android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="6"/>
-
-            <Button
-                android:id="@+id/latest6button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/latest6date"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/latest7text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="7"/>
-
-            <Button
-                android:id="@+id/latest7button"
-                android:layout_width="252dp"
-                android:layout_height="36dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/latest7date"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="-109dp"/>
         </LinearLayout>
 
         <LinearLayout
