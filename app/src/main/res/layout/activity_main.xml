@@ -43,7 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_edit" />
+            android:layout_margin="16dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
