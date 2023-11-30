@@ -12,6 +12,9 @@
         android:theme="@style/Theme.GroupPurchaseSystem"
         tools:targetApi="31">
         <activity
+            android:name=".PostActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,8 +25,6 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".Major_Category" />
-        <activity android:name=".Object_Category" />
     </application>
 
 </manifest>
