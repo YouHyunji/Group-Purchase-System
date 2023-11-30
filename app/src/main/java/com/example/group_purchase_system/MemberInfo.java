@@ -1,7 +1,7 @@
 package com.example.group_purchase_system;
 
 public class MemberInfo {
-    private String name;
+    public static String name = "name";
     private String email;
 
     public MemberInfo(String name, String email) {    // 생성자함수 ( 초기화 )
