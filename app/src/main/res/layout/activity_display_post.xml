@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -29,67 +28,41 @@
                 android:layout_height="match_parent"
                 android:background="#CBD5DD"
                 android:gravity="center"
-                android:text="공구합시당! 메인 페이지"
+                android:text="공구합시당! 게시글 목록"
                 android:textSize="30sp"
                 android:typeface="monospace" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="<학과 선택>"
-            android:textSize="20sp"
-            android:typeface="monospace" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1">
-
-            <Button
-                android:id="@+id/softwarebutton"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="소프트웨어"
-                app:layout_constraintEnd_toStartOf="@+id/computerbutton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintWidth_percent="0.33" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/computerbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="컴퓨터공학"
-                app:layout_constraintEnd_toStartOf="@+id/electricbutton"
-                app:layout_constraintStart_toEndOf="@+id/softwarebutton"
-                app:layout_constraintWidth_percent="0.33" />
-
-            <Button
-                android:id="@+id/electricbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="전자공학과"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/computerbutton"
-                app:layout_constraintWidth_percent="0.33" />
-        </LinearLayout>
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="<최신글>"
-            android:textSize="20sp"
-            android:typeface="monospace" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="조건:"
+                    android:textSize="30sp"
+                    android:typeface="monospace" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="학과명"
+                    android:textSize="30sp"
+                    android:typeface="monospace" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="카테고리"
+                    android:textSize="30sp"
+                    android:typeface="monospace" />
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +70,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest1text"
+                android:id="@+id/display1text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -107,7 +80,7 @@
                 android:text="1"/>
 
             <Button
-                android:id="@+id/latest1button"
+                android:id="@+id/display1button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -117,7 +90,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest1date"
+                android:id="@+id/display1date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -125,15 +98,15 @@
                 android:textColor="#AAAAAA"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest2text"
+                android:id="@+id/display2text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -143,7 +116,7 @@
                 android:text="2"/>
 
             <Button
-                android:id="@+id/latest2button"
+                android:id="@+id/display2button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -153,7 +126,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest2date"
+                android:id="@+id/display2date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -162,13 +135,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest3text"
+                android:id="@+id/display3text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -178,7 +152,7 @@
                 android:text="3"/>
 
             <Button
-                android:id="@+id/latest3button"
+                android:id="@+id/display3button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -188,7 +162,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest3date"
+                android:id="@+id/display3date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -197,13 +171,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest4text"
+                android:id="@+id/display4text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -213,7 +188,7 @@
                 android:text="4"/>
 
             <Button
-                android:id="@+id/latest4button"
+                android:id="@+id/display4button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -223,7 +198,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest4date"
+                android:id="@+id/display4date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -232,13 +207,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest5text"
+                android:id="@+id/display5text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -248,7 +224,7 @@
                 android:text="5"/>
 
             <Button
-                android:id="@+id/latest5button"
+                android:id="@+id/display5button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -258,7 +234,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest5date"
+                android:id="@+id/display5date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -267,13 +243,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest6text"
+                android:id="@+id/display6text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -283,7 +260,7 @@
                 android:text="6"/>
 
             <Button
-                android:id="@+id/latest6button"
+                android:id="@+id/display6button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -293,7 +270,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest6date"
+                android:id="@+id/display6date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -302,13 +279,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/latest7text"
+                android:id="@+id/display7text"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -318,7 +296,7 @@
                 android:text="7"/>
 
             <Button
-                android:id="@+id/latest7button"
+                android:id="@+id/display7button"
                 android:layout_width="252dp"
                 android:layout_height="36dp"
                 android:layout_margin="10dp"
@@ -328,7 +306,7 @@
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/latest7date"
+                android:id="@+id/display7date"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -340,24 +318,176 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/display8text"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="8"/>
 
             <Button
-                android:id="@+id/mypostButton"
-                android:layout_width="match_parent"
+                android:id="@+id/display8button"
+                android:layout_width="252dp"
+                android:layout_height="36dp"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF"
+                android:text="게시글 제목을 입력하시오"
+                android:textColor="#AAAAAA"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/display8date"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
-                android:text="내 게시글 보기"
+                android:gravity="center"
+                android:text="생성날짜"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/display9text"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="#000000"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="9"/>
+
+            <Button
+                android:id="@+id/display9button"
+                android:layout_width="252dp"
+                android:layout_height="36dp"
+                android:layout_margin="10dp"
+                android:background="#00FFFFFF"
+                android:text="게시글 제목을 입력하시오"
+                android:textColor="#AAAAAA"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/display9date"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="생성날짜"
+                android:textColor="#AAAAAA"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/movefrontButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="<"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move1Button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.125" />
+            <Button
+                android:id="@+id/move1Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="1"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move2Button"
+                app:layout_constraintStart_toEndOf="@+id/movefrontButton"
+                app:layout_constraintWidth_percent="0.125" />
+            <Button
+                android:id="@+id/move2Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move3Button"
+                app:layout_constraintStart_toEndOf="@+id/move1Button"
+                app:layout_constraintWidth_percent="0.125"/>
+            <Button
+                android:id="@+id/move3Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="3"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move4Button"
+                app:layout_constraintStart_toEndOf="@+id/move2Button"
+                app:layout_constraintWidth_percent="0.125"/>
+            <Button
+                android:id="@+id/move4Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="4"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move5Button"
+                app:layout_constraintStart_toEndOf="@+id/move3Button"
+                app:layout_constraintWidth_percent="0.125"/>
+            <Button
+                android:id="@+id/move5Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="5"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move6Button"
+                app:layout_constraintStart_toEndOf="@+id/move4Button"
+                app:layout_constraintWidth_percent="0.125"/>
+            <Button
+                android:id="@+id/move6Button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="6"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/move7Button"
+                app:layout_constraintStart_toEndOf="@+id/move5Button"
+                app:layout_constraintWidth_percent="0.125"/>
+            <Button
+                android:id="@+id/movebackButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#CBD5DD"
+                android:text=">"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/move6Button"
+                app:layout_constraintWidth_percent="0.125" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.05">
+            android:layout_weight="0.075">
 
             <Button
                 android:id="@+id/logoutButton"
@@ -369,6 +499,8 @@
                 tools:layout_editor_absoluteX="-40dp"
                 tools:layout_editor_absoluteY="100dp" />
         </LinearLayout>
+
+
 
     </LinearLayout>
 

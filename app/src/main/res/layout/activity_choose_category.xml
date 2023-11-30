@@ -29,15 +29,57 @@
                 android:layout_height="match_parent"
                 android:background="#CBD5DD"
                 android:gravity="center"
-                android:text="공구합시당! 카테고리 선택"
+                android:text="공구합시당! 게시글 목록"
                 android:textSize="30sp"
                 android:typeface="monospace" />
         </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="<카테고리 선택>"
+            android:textSize="20sp"
+            android:typeface="monospace" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
+
+            <Button
+                android:id="@+id/clothes"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="옷"
+                app:layout_constraintEnd_toStartOf="@+id/books"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.33" />
+
+            <Button
+                android:id="@+id/books"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="책"
+                app:layout_constraintEnd_toStartOf="@+id/others"
+                app:layout_constraintStart_toEndOf="@+id/clothes"
+                app:layout_constraintWidth_percent="0.33" />
+
+            <Button
+                android:id="@+id/others"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="#CBD5DD"
+                android:text="기타"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/books"
+                app:layout_constraintWidth_percent="0.33" />
         </LinearLayout>
 
         <LinearLayout
