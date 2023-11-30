@@ -20,6 +20,8 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
     private EditText mTitle, mContents;
+    //글쓰기 부분
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,7 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.post_save_button).setOnClickListener(this);
     }
-
+    //글 쓴 부분을 파이어베이스에 저장
     @Override
     public void onClick(View v) {
         if(mAuth.getCurrentUser() != null) {

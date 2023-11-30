@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    protected void onStart() {
+    protected void onStart() {  //메인에서 게시글 보여 주는 부분
         super.onStart();
         mDatas =new ArrayList<>();
         mStore.collection(FirebaseID.post)
