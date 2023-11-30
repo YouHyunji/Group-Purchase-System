@@ -52,55 +52,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:text="학과:"
-                    android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:typeface="monospace" />
-
-                <EditText
-                    android:id="@+id/departmentEditText"
-                    android:layout_width="114dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:inputType="text" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center"
-                    android:text="분야:"
-                    android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:typeface="monospace" />
-
-                <EditText
-                    android:id="@+id/categoryEditText"
-                    android:layout_width="114dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
                 android:layout_weight="0.15"
                 android:orientation="horizontal">
 
@@ -136,7 +87,7 @@
                 <EditText
                     android:id="@+id/contentEditText"
                     android:layout_width="370dp"
-                    android:layout_height="250dp"
+                    android:layout_height="289dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
