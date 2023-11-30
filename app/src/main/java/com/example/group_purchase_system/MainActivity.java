@@ -72,7 +72,17 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        Button Major_Category = findViewById(R.id.Major_Category);  // 학과 카테고리 버튼
        Button logoutButton = findViewById(R.id.logoutButton);  // 로그아웃 버튼
+
+        // 학과 선택 버튼
+        Major_Category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myStartActivity(Major_Category.class);   // 학과 카테고리 이동
+            }
+        });
+
 
         // 로그아웃
         logoutButton.setOnClickListener(new View.OnClickListener() {
