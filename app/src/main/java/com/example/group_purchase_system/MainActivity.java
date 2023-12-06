@@ -133,6 +133,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        // 게시글 추가 버튼 이벤트 처리
+        AddPost_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myStartActivity(PostActivity.class);        // 글쓰기 화면으로 이동
+            }
+        });
+
+        // 나의 게시글 버튼 이벤트 처리
+        MyPost_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //myStartActivity(PostActivity.class);        // 글쓰기 화면으로 이동
+                startToast("나의 게시글 보기로 이동");
+            }
+        });
+
+        // 검색 버튼 이벤트 처리
+        Search_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
         mPostRecyclerView = findViewById(R.id.main_recyclerview);
         mDatas = new ArrayList<>();
 
@@ -184,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, PostActivity.class));
     }
 
+
     public void ActionButton() {
         Log.d(TAG, "isMenuOpen = " + isMenuOpen);
         if (isMenuOpen) {
@@ -216,6 +242,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 플로팅 버튼 상태 변경
             isMenuOpen = !isMenuOpen;
     }
-
 
 }
