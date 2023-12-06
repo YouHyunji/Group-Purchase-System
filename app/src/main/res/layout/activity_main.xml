@@ -42,10 +42,6 @@
 
     <!-- 버튼 추가 -->
 
-    <!-- 메뉴 돌아가기(취소) 버튼-->
-
-    <!-- 메뉴 보기 버튼-->
-
     <!-- 게시글 추가 버튼 -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddPost_Button"
@@ -95,22 +91,8 @@
         app:elevation="8dp"
         app:srcCompat="@drawable/baseline_search_24" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/Menu_XButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        app:backgroundTint="#8A67C8"
-        app:borderWidth="0dp"
-        app:elevation="8dp"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 
+    <!-- 메뉴 보기 버튼-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/MenuButton"
         android:layout_width="wrap_content"
@@ -125,7 +107,7 @@
         app:backgroundTint="#8A67C8"
         app:borderWidth="0dp"
         app:elevation="8dp"
-        app:srcCompat="?android:attr/actionModeFindDrawable" />
+        app:srcCompat="@drawable/baseline_menu_24" />
 
 
 </RelativeLayout>

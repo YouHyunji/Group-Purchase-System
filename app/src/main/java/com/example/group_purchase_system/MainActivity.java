@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -47,11 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Post> mDatas;
 
     private FloatingActionButton MenuButton;        // 메뉴 선택 버튼
-    private FloatingActionButton Menu_XButton;      // 메뉴 선택 취소 버튼
     private FloatingActionButton AddPost_Button;           // 게시글 추가 버튼
     private FloatingActionButton MyPost_Button;      // 내 게시글 보기 버튼
     private FloatingActionButton Search_Button;     // 검색 버튼
-    private boolean isMenuOpen;     // 메뉴버튼 선택 여부
+    private boolean isMenuOpen = false;     // 메뉴버튼 선택 여부
     private static final String TAG = "MainActivity";     // TAG 추가
     private FirebaseAuth mAuth;
 
@@ -107,10 +107,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyPost_Button = findViewById(R.id.MyPost_Button);           // 나의 게시글 보기 버튼
         Search_Button = findViewById(R.id.Search_Button);           // 검색 버튼
         MenuButton = findViewById(R.id.MenuButton);            // 메뉴 선택 버튼
-        Menu_XButton = findViewById(R.id.Menu_XButton);        // 메뉴 선택 취소 버튼
-
-
-        MenuCancleClick();    // 메뉴 선택하기 버튼 생성
 
         // 학과 선택 버튼
         Major_Category.setOnClickListener(new View.OnClickListener() {
@@ -133,19 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isMenuOpen =  false;    // 메뉴가 닫혀있는 상태
-                //MenuClick();
-                ActionButton(isMenuOpen);
-            }
-        });
-
-        // 메뉴 선택 취소 버튼 이벤트 처리 : 버튼 클릭했을 때 게시글 추가 & 내 게시글 보기 & 검색 버튼 사라짐
-        Menu_XButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isMenuOpen =  true;    // 메뉴가 열려있는 상태
-                //MenuCancleClick();
-                ActionButton(isMenuOpen);
+                ActionButton();             // 버튼 동작 실행 메서드
             }
         });
 
@@ -200,37 +184,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(new Intent(this, PostActivity.class));
     }
 
-    // 메뉴 선택하기 버튼 : 나머지 다른 옵션(게시글 추가, 내 게시글 보기) 버튼들이 나오도록 함.
-    private void MenuClick() {
-        MenuButton.setVisibility(View.GONE);
-        Menu_XButton.setVisibility(View.VISIBLE);
-        AddPost_Button.setVisibility(View.VISIBLE);
-        MyPost_Button.setVisibility(View.VISIBLE);
-        Search_Button.setVisibility(View.VISIBLE);
-    }
-
-    // 메뉴 선택 취소 버튼 : 다른 옵션이 사라지고 '메뉴 선택' 버튼만 나타남.
-    private void MenuCancleClick() {
-        MenuButton.setVisibility(View.VISIBLE);
-        Menu_XButton.setVisibility(View.GONE);
-        AddPost_Button.setVisibility(View.GONE);
-        MyPost_Button.setVisibility(View.GONE);
-        Search_Button.setVisibility(View.GONE);
-    }
-
-    private void ActionButton(boolean isMenuOpen) {
-        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+    public void ActionButton() {
+        Log.d(TAG, "isMenuOpen = " + isMenuOpen);
         if (isMenuOpen) {
-            MenuButton.setVisibility(View.VISIBLE);     // 메뉴 선택하기 버튼
-            ObjectAnimator.ofFloat(AddPost_Button, "translationY", 0f).start();
-            ObjectAnimator.ofFloat(MyPost_Button, "translationY", 0f).start();
-            ObjectAnimator.ofFloat(Search_Button, "translationY", 0f).start();
-        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
 
-            Menu_XButton.setVisibility(View.VISIBLE);       // 메뉴 취소하기 버튼
-            ObjectAnimator.ofFloat(AddPost_Button, "translationY", -360f).start();
-            ObjectAnimator.ofFloat(MyPost_Button, "translationY", -180f).start();
-            ObjectAnimator.ofFloat(Search_Button, "translationY", 0f, -90f).start();
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+
+            ObjectAnimator addPostAnim = ObjectAnimator.ofFloat(AddPost_Button, "translationY", 0f);
+            addPostAnim.start();
+            ObjectAnimator myPostAnim = ObjectAnimator.ofFloat(MyPost_Button, "translationY", 0f);
+            myPostAnim.start();
+            ObjectAnimator searchAnim = ObjectAnimator.ofFloat(Search_Button, "translationY", 0f);
+            searchAnim.start();
+
+            MenuButton.setImageResource(R.drawable.baseline_menu_24);
+
+
+        } else {        // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+
+            ObjectAnimator addPostAnim = ObjectAnimator.ofFloat(AddPost_Button, "translationY",  -160f);
+            addPostAnim.start();
+            ObjectAnimator myPostAnim = ObjectAnimator.ofFloat(MyPost_Button, "translationY",  -320f);
+            myPostAnim.start();
+            ObjectAnimator searchAnim = ObjectAnimator.ofFloat(Search_Button, "translationY",  -480f);
+            searchAnim.start();
+
+            // 메뉴 버튼 아이콘 변경
+            MenuButton.setImageResource(R.drawable.baseline_close_24);
         }
+
+        // 플로팅 버튼 상태 변경
+            isMenuOpen = !isMenuOpen;
     }
+
+
 }
