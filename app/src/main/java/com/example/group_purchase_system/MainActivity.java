@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Search_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
 
@@ -204,11 +204,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
     }
-    @Override
-    public void onClick(View v) {
-        startActivity(new Intent(this, PostActivity.class));
-    }
-
 
     public void ActionButton() {
         Log.d(TAG, "isMenuOpen = " + isMenuOpen);
