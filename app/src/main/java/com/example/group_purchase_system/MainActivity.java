@@ -1,10 +1,13 @@
 package com.example.group_purchase_system;
 
+import static com.google.common.collect.ComparisonChain.start;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +20,7 @@ import com.example.group_purchase_system.adapters.PostAdapter;
 import com.example.group_purchase_system.models.Post;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -42,6 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private PostAdapter mAdapter;
     private List<Post> mDatas;
 
+    private FloatingActionButton MenuButton;        // 메뉴 선택 버튼
+    private FloatingActionButton Menu_XButton;      // 메뉴 선택 취소 버튼
+    private FloatingActionButton AddPost_Button;           // 게시글 추가 버튼
+    private FloatingActionButton MyPost_Button;      // 내 게시글 보기 버튼
+    private FloatingActionButton Search_Button;     // 검색 버튼
+    private boolean isMenuOpen;     // 메뉴버튼 선택 여부
     private static final String TAG = "MainActivity";     // TAG 추가
     private FirebaseAuth mAuth;
 
@@ -90,8 +100,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
         }
 
+        // inflate된 레이아웃에서 버튼 찾아 초기화
+       Button logoutButton = findViewById(R.id.logoutButton);       // 로그아웃 버튼
         Button Major_Category = findViewById(R.id.Major_Category);  // 학과 카테고리 버튼
-       Button logoutButton = findViewById(R.id.logoutButton);  // 로그아웃 버튼
+        AddPost_Button = findViewById(R.id.AddPost_Button);         // 게시글 추가 버튼
+        MyPost_Button = findViewById(R.id.MyPost_Button);           // 나의 게시글 보기 버튼
+        Search_Button = findViewById(R.id.Search_Button);           // 검색 버튼
+        MenuButton = findViewById(R.id.MenuButton);            // 메뉴 선택 버튼
+        Menu_XButton = findViewById(R.id.Menu_XButton);        // 메뉴 선택 취소 버튼
+
+
+        MenuCancleClick();    // 메뉴 선택하기 버튼 생성
 
         // 학과 선택 버튼
         Major_Category.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myStartActivity(Major_Category.class);   // 학과 카테고리 이동
             }
         });
-
 
         // 로그아웃
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +129,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        // 메뉴 선택하기 버튼 이벤트 처리 : 버튼 클릭했을 때 게시글 추가 & 내 게시글 보기 & 검색 버튼 나옴
+        MenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isMenuOpen =  false;    // 메뉴가 닫혀있는 상태
+                //MenuClick();
+                ActionButton(isMenuOpen);
+            }
+        });
+
+        // 메뉴 선택 취소 버튼 이벤트 처리 : 버튼 클릭했을 때 게시글 추가 & 내 게시글 보기 & 검색 버튼 사라짐
+        Menu_XButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isMenuOpen =  true;    // 메뉴가 열려있는 상태
+                //MenuCancleClick();
+                ActionButton(isMenuOpen);
+            }
+        });
 
         mPostRecyclerView = findViewById(R.id.main_recyclerview);
         mDatas = new ArrayList<>();
@@ -118,7 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAdapter = new PostAdapter(mDatas);
         mPostRecyclerView.setAdapter(mAdapter);
 
-        findViewById(R.id.main_post_edit).setOnClickListener(this);
+        // 게시글 추가
+        //findViewById(R.id.main_post_edit).setOnClickListener(this);
 
 
     }
@@ -160,5 +198,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         startActivity(new Intent(this, PostActivity.class));
+    }
+
+    // 메뉴 선택하기 버튼 : 나머지 다른 옵션(게시글 추가, 내 게시글 보기) 버튼들이 나오도록 함.
+    private void MenuClick() {
+        MenuButton.setVisibility(View.GONE);
+        Menu_XButton.setVisibility(View.VISIBLE);
+        AddPost_Button.setVisibility(View.VISIBLE);
+        MyPost_Button.setVisibility(View.VISIBLE);
+        Search_Button.setVisibility(View.VISIBLE);
+    }
+
+    // 메뉴 선택 취소 버튼 : 다른 옵션이 사라지고 '메뉴 선택' 버튼만 나타남.
+    private void MenuCancleClick() {
+        MenuButton.setVisibility(View.VISIBLE);
+        Menu_XButton.setVisibility(View.GONE);
+        AddPost_Button.setVisibility(View.GONE);
+        MyPost_Button.setVisibility(View.GONE);
+        Search_Button.setVisibility(View.GONE);
+    }
+
+    private void ActionButton(boolean isMenuOpen) {
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        if (isMenuOpen) {
+            MenuButton.setVisibility(View.VISIBLE);     // 메뉴 선택하기 버튼
+            ObjectAnimator.ofFloat(AddPost_Button, "translationY", 0f).start();
+            ObjectAnimator.ofFloat(MyPost_Button, "translationY", 0f).start();
+            ObjectAnimator.ofFloat(Search_Button, "translationY", 0f).start();
+        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+
+            Menu_XButton.setVisibility(View.VISIBLE);       // 메뉴 취소하기 버튼
+            ObjectAnimator.ofFloat(AddPost_Button, "translationY", -360f).start();
+            ObjectAnimator.ofFloat(MyPost_Button, "translationY", -180f).start();
+            ObjectAnimator.ofFloat(Search_Button, "translationY", 0f, -90f).start();
+        }
     }
 }
