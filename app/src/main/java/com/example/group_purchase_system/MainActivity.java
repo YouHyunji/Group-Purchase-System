@@ -245,6 +245,8 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
     // 검색어를 입력받는 Dialog (대화상자)
     private void Search_Dialog() {
 
+        startToast("게시글의 제목을 입력해주세요!");
+
         // Dialog Builder 생성
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
@@ -254,8 +256,6 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
 
 
         EditText Search_EditText = view.findViewById(R.id.Search_name);         // 검색어 입력창
-        String query = Search_EditText.getText().toString();               // 입력받은 검색어를 저장
-
         Button OKButton = view.findViewById(R.id.Search_Ok_Button);            // 검색 버튼
         Button BackButton = view.findViewById(R.id.Search_Back_Button);        // 돌아가기 버튼
 
@@ -268,7 +268,9 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
             @Override
             public void onClick(View v) {
 
-                if(TextUtils.isEmpty(query)) {              // 오류 있음, 고쳐야함
+                String query = Search_EditText.getText().toString();               // 입력받은 검색어를 저장
+
+                if(TextUtils.isEmpty(query)) {              // 입력된 검색어가 없을 때
                     startToast("검색어를 입력해주세요!");
                 } else {
                     startToast("검색 기능 실행");
