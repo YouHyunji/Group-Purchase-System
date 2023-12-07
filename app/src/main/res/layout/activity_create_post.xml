@@ -11,11 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <!-- 페이지 위 부분 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- 공구합시당 사진 공간 -->
             <ImageView
                 android:id="@+id/textView"
                 android:layout_width="50dp"
@@ -24,6 +27,7 @@
                 android:src="@drawable/main_logo"
                 android:text="로그인" />
 
+            <!-- 페이지 이름 공간 -->
             <TextView
                 android:layout_width="359dp"
                 android:layout_height="match_parent"
@@ -34,12 +38,14 @@
                 android:typeface="monospace" />
         </LinearLayout>
 
+        <!-- 게시글 작성 공간 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- 레이아웃 설명(게시글) 공간 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,6 +55,7 @@
                 android:textSize="25sp"
                 android:typeface="monospace" />
 
+            <!-- 제목 공간 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -66,6 +73,7 @@
                     android:textSize="25sp"
                     android:typeface="monospace" />
 
+                <!-- 제목 입력 공간 -->
                 <EditText
                     android:id="@+id/titleEditText"
                     android:layout_width="300dp"
@@ -79,11 +87,13 @@
 
             </LinearLayout>
 
+            <!-- 내용 공간 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.6">
 
+                <!-- 내용 입력 공간 -->
                 <EditText
                     android:id="@+id/contentEditText"
                     android:layout_width="370dp"
@@ -96,6 +106,7 @@
                     android:inputType="textEmailAddress" />
             </LinearLayout>
 
+            <!-- 모집인원 공간 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -113,6 +124,7 @@
                     android:textSize="25sp"
                     android:typeface="monospace" />
 
+                <!-- 모집인원 입력 공간 -->
                 <EditText
                     android:id="@+id/limitEditText"
                     android:layout_width="70dp"
@@ -135,11 +147,14 @@
 
             </LinearLayout>
 
+            <!-- 사진 게시, 게시글 게시 공간 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.15"
                 android:orientation="horizontal">
+
+                <!-- 사진 올리기 버튼 -->
                 <Button
                     android:id="@+id/getpictureButton"
                     android:layout_width="wrap_content"
@@ -149,6 +164,7 @@
                     android:textColor="#000000"
                     android:layout_marginLeft="20dp"/>
 
+                <!-- 사진 출력 공간 -->
                 <ImageView
                     android:id="@+id/pictureView"
                     android:layout_width="150dp"
@@ -157,6 +173,8 @@
                     android:src="@drawable/main_logo"
                     android:text="그림 미리보기"
                     android:layout_marginLeft="10dp"/>
+
+                <!-- 게시글 게시 버튼 공간 -->
                 <Button
                     android:id="@+id/postButton"
                     android:layout_width="wrap_content"
@@ -175,6 +193,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.075">
 
+            <!-- 로그아웃 버튼 -->
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"

@@ -11,11 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <!-- 페이지 위 부분 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- 공구합시당 사진 공간 -->
             <ImageView
                 android:id="@+id/textView"
                 android:layout_width="50dp"
@@ -24,6 +27,7 @@
                 android:src="@drawable/main_logo"
                 android:text="로그인" />
 
+            <!-- 페이지 이름 공간 -->
             <TextView
                 android:layout_width="359dp"
                 android:layout_height="match_parent"
@@ -34,6 +38,7 @@
                 android:typeface="monospace" />
         </LinearLayout>
 
+        <!-- 레이아웃 설명(학과선택) 공간 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,11 +47,13 @@
             android:textSize="20sp"
             android:typeface="monospace" />
 
+        <!-- 학과선택 공간 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1">
 
+            <!-- 소프트웨어학과 버튼 -->
             <Button
                 android:id="@+id/softwarebutton"
                 android:layout_width="wrap_content"
@@ -58,6 +65,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.33" />
 
+            <!-- 컴퓨터공학과 버튼 -->
             <Button
                 android:id="@+id/computerbutton"
                 android:layout_width="wrap_content"
@@ -69,6 +77,7 @@
                 app:layout_constraintStart_toEndOf="@+id/softwarebutton"
                 app:layout_constraintWidth_percent="0.33" />
 
+            <!-- 전자공학과 버튼 -->
             <Button
                 android:id="@+id/electricbutton"
                 android:layout_width="wrap_content"
@@ -81,8 +90,7 @@
                 app:layout_constraintWidth_percent="0.33" />
         </LinearLayout>
 
-
-
+        <!-- 레이아웃 설명(최신글) 공간 -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,11 +99,13 @@
             android:textSize="20sp"
             android:typeface="monospace" />
 
+        <!-- 최신글 공간 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- 첫 번째 글 번호 -->
             <TextView
                 android:id="@+id/latest1text"
                 android:layout_width="40dp"
@@ -106,6 +116,7 @@
                 android:textStyle="bold"
                 android:text="1"/>
 
+            <!-- 첫 번째 글 제목 -->
             <Button
                 android:id="@+id/latest1button"
                 android:layout_width="229dp"
@@ -116,6 +127,7 @@
                 android:textColor="#AAAAAA"
                 android:textSize="10dp" />
 
+            <!-- 첫 번째 글 생성날짜 -->
             <TextView
                 android:id="@+id/latest1date"
                 android:layout_width="109dp"
@@ -126,6 +138,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <!-- 첫 번째 글 잔여인원수/최대인원수 -->
             <TextView
                 android:id="@+id/latest1limit"
                 android:layout_width="109dp"
@@ -138,6 +151,8 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="-109dp"/>
         </LinearLayout>
+
+        <!-- 첫 번째 글 양식과 동일 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -331,11 +346,13 @@
                 android:layout_marginLeft="-109dp"/>
         </LinearLayout>
 
+        <!-- 빠른 이동 버튼이 위치하는 레이아웃 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.05">
 
+            <!-- 내 게시글 보기 버튼 -->
             <Button
                 android:id="@+id/mypostButton"
                 android:layout_width="match_parent"
@@ -352,6 +369,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.05">
 
+            <!-- 로그아웃 버튼 -->
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
