@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="50dp">
-      <Button
+        tools:layout_editor_absoluteX="-69dp"
+        tools:layout_editor_absoluteY="-99dp">
+
+        <Button
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#CBD5DD"
             android:text="학과 선택"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_recyclerview"
