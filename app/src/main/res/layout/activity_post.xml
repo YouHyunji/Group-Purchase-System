@@ -30,6 +30,16 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button_select_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Image"
+        android:layout_marginTop="16dp"
+        android:onClick="onClick"
+        app:layout_constraintTop_toBottomOf="@id/post_content_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/post_content_edit"
