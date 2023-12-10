@@ -30,12 +30,12 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#CBD5DD"
             android:text="학과 선택"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="125dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
