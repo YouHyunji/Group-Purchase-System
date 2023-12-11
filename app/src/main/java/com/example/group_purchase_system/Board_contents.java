@@ -5,7 +5,6 @@ public class Board_contents {
 
     public static String name ="name";
     public static String title = "title";
-    //게시글 제목
     public static String contents = "contents";
     public static String timestamp = "timestamp";
 
