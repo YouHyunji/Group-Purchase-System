@@ -13,31 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- 페이지 위 부분 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- 공구합시당 사진 공간 -->
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="0"
-                android:src="@drawable/main_logo"
-                android:text="로그인" />
-
-            <!-- 페이지 이름 공간 -->
-            <TextView
-                android:layout_width="359dp"
-                android:layout_height="match_parent"
-                android:background="#CBD5DD"
-                android:gravity="center"
-                android:text="공구합시당! 메인 페이지"
-                android:textSize="30sp"
-                android:typeface="monospace" />
-        </LinearLayout>
 
         <!-- 레이아웃 설명(학과선택) 공간 -->
         <TextView
@@ -54,7 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1">
+            android:layout_weight="0">
 
             <!-- 소프트웨어학과 버튼 -->
             <Button
@@ -62,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#8B00FF"
                 android:text="소프트웨어"
                 app:layout_constraintEnd_toStartOf="@+id/computerbutton"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#8B00FF"
                 android:text="컴퓨터공학"
                 app:layout_constraintEnd_toStartOf="@+id/electricbutton"
                 app:layout_constraintStart_toEndOf="@+id/softwarebutton"
@@ -86,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#8B00FF"
                 android:text="전자공학과"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/computerbutton"
@@ -118,22 +93,6 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
         <!-- 빠른 이동 버튼이 위치하는 레이아웃 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
-
-            <!-- 내 게시글 보기 버튼 -->
-            <Button
-                android:id="@+id/mypostButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
-                android:text="내 게시글 보기"
-                android:textColor="#000000"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -145,7 +104,7 @@
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#6200EE"
                 android:text="로그아웃"
                 android:textColor="#000000"
                 tools:layout_editor_absoluteX="-40dp"
