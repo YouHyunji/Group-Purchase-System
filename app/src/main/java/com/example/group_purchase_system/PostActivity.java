@@ -2,12 +2,16 @@ package com.example.group_purchase_system;
 
 
 import androidx.annotation.NonNull;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+
+
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -100,9 +104,11 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
     // 리스너 호출 함수 (클릭 함수) : 게시글 정보를 FireStore에 업로드
     @Override
     public void onClick(View v) {
+
         if (v.getId() == R.id.post_save_button) {
             if(mAuth.getCurrentUser() != null) {
                 String postid = db.collection(Board_contents.post).document().getId();
