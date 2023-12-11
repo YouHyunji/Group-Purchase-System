@@ -9,14 +9,16 @@ public class Post {
     }
 
     private  String documentId;
+    private  String name;
     private  String title;
     private  String contents;
 
     @ServerTimestamp
     private Date date;
 
-    public Post(String documentId, String title, String contents) {
+    public Post(String documentId, String title, String contents, String name) {
         this.documentId = documentId;
+        this.name = name;
         this.title = title;
         this.contents = contents;
     }
@@ -33,8 +35,13 @@ public class Post {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title) { this.title = title; }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContents() {

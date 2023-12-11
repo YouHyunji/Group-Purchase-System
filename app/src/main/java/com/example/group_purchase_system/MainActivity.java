@@ -1,15 +1,11 @@
 package com.example.group_purchase_system;
 
-import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
-import static com.google.common.collect.ComparisonChain.start;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -20,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.group_purchase_system.adapters.PostAdapter;
@@ -178,6 +173,7 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         startActivity(intent);
     }
 
+    // 하단 알림창 출력하는 메서드
     private void startToast(String msg) {     // Toast 띄우는 함수
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
@@ -188,7 +184,7 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         super.onStart();
         mDatas =new ArrayList<>();
         db.collection(Board_contents.post)
-                .orderBy(Board_contents.timestamp, Query.Direction.DESCENDING)
+                .orderBy(Board_contents.timestamp, Query.Direction.DESCENDING)      // 게시글 정렬
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -196,10 +192,10 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
                             mDatas.clear();
                             for (QueryDocumentSnapshot snap : value) {
                                 Map<String, Object> shot = snap.getData();
-                                String name = String.valueOf(shot.get(MemberInfo.name));
+                                String name = String.valueOf(shot.get(Board_contents.name));
                                 String title = String.valueOf(shot.get(Board_contents.title));
                                 String contents = String.valueOf(shot.get(Board_contents.contents));
-                                Post data = new Post(name, title, contents);
+                                Post data = new Post(name, title, contents, name);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);
@@ -274,10 +270,14 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
                     startToast("검색어를 입력해주세요!");
                 } else {
                     startToast("검색 기능 실행");
-                    alertDialog.dismiss();      // Dialog창 닫기
 
-                    // 검색 로직 추가
+                    // 선택한 항목의 정보를 Intent에 담아 Search_Result.Class (검색결과창)를 시작
+                    Intent intent = new Intent(MainActivity.this, Search_Result.class);
+                    intent.putExtra("query", query);    // 검색어 전달
 
+                    Log.d(TAG, "전달한 검색어 : " + query);
+
+                    startActivity(intent);
                 }
             }
         });
