@@ -20,7 +20,7 @@
 
             <!-- 공구합시당 사진 공간 -->
             <ImageView
-                android:id="@+id/textView"
+                android:id="@+id/pictureView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="0"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="<카테고리 선택>"
+            android:text="카테고리 선택"
             android:textSize="20sp"
             android:typeface="monospace" />
 
