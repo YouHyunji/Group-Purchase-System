@@ -134,7 +134,7 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                                 // 이미지를 선택하지 않은 경우
                                 db.collection(Board_contents.post).document(postid).set(data, SetOptions.merge());
                                  startToast("이미지를 선택해주세요!");
-                                finish();
+                                // finish();            // 이미지 선택이 필수일 경우, 지울 것.
                             }
 
                         } else {
