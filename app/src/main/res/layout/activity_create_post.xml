@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="bold"
+    android:layout_width="match_parent"
+    android:background="#EAEAEA"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 페이지 위 부분 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- 공구합시당 사진 공간 -->
+            <ImageView
+                android:id="@+id/textView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="0"
+                android:src="@drawable/main_logo"
+                android:text="로그인" />
+
+            <!-- 페이지 이름 공간 -->
+            <TextView
+                android:layout_width="359dp"
+                android:layout_height="match_parent"
+                android:background="#CBD5DD"
+                android:gravity="center"
+                android:text="공구합시당! 게시글 작성"
+                android:textSize="30sp"
+                android:typeface="monospace" />
+        </LinearLayout>
+
+        <!-- 게시글 작성 공간 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 레이아웃 설명(게시글) 공간 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="게시글"
+                android:textSize="25sp"
+                android:typeface="monospace" />
+
+            <!-- 제목 공간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="제목:"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:typeface="monospace" />
+
+                <!-- 제목 입력 공간 -->
+                <EditText
+                    android:id="@+id/titleEditText"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="제목을 입력하시오"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <!-- 내용 공간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6">
+
+                <!-- 내용 입력 공간 -->
+                <EditText
+                    android:id="@+id/contentEditText"
+                    android:layout_width="370dp"
+                    android:layout_height="289dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:hint="내용을 입력하시오"
+                    android:inputType="textEmailAddress" />
+            </LinearLayout>
+
+            <!-- 모집인원 공간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="모집인원:"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:typeface="monospace" />
+
+                <!-- 모집인원 입력 공간 -->
+                <EditText
+                    android:id="@+id/limitEditText"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="text" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="명"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+
+            <!-- 사진 게시, 게시글 게시 공간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15"
+                android:orientation="horizontal">
+
+                <!-- 사진 올리기 버튼 -->
+                <Button
+                    android:id="@+id/getpictureButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#CBD5DD"
+                    android:text="사진 올리기"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"/>
+
+                <!-- 사진 출력 공간 -->
+                <ImageView
+                    android:id="@+id/pictureView"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/main_logo"
+                    android:text="그림 미리보기"
+                    android:layout_marginLeft="10dp"/>
+
+                <!-- 게시글 게시 버튼 공간 -->
+                <Button
+                    android:id="@+id/postButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#CBD5DD"
+                    android:text="게시하기"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="15dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.075">
+
+            <!-- 로그아웃 버튼 -->
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CBD5DD"
+                android:text="로그아웃"
+                android:textColor="#000000"
+                tools:layout_editor_absoluteX="-40dp"
+                tools:layout_editor_absoluteY="100dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
