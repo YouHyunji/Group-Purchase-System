@@ -3,26 +3,45 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <!-- 이 코드는 원래 PostAdaptor에서 contents를 삭제하고, Picture, Timestamp, Like를 삽입한 형태입니다. -->
+    <!-- 오류 방지를 위해 item_post_contents를 넣었습니다. 코드가 완성되면 삭제해주세요! -->
+    <ImageView
+        android:id="@+id/item_post_Picture"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:text="Picture" />
     <TextView
         android:id="@+id/item_post_title"
-        android:layout_width="208dp"
-        android:layout_height="50dp"
+        android:layout_width="151dp"
+        android:layout_height="75dp"
         android:layout_margin="8dp"
         android:text="TITLE"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/item_post_contents"
+            android:id="@+id/item_post_timestamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="Contents"
+            android:text="Timestamp"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_post_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="contents"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="14sp" />
 
@@ -33,5 +52,33 @@
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="8dp"
             android:text="Name" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+            android:id="@+id/item_post_Like"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Like" />
+            <TextView
+                android:id="@+id/divide"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="#000000"
+                android:text="/" />
+            <TextView
+                android:id="@+id/item_post_Limit"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Limit" />
+
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
