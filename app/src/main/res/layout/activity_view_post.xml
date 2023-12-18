@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="bold"
     android:layout_width="match_parent"
     android:background="#EAEAEA"
@@ -12,32 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- 페이지 위 부분 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- 공구합시당 사진 공간 -->
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="0"
-                android:src="@drawable/main_logo"
-                android:text="로그인" />
-
-            <!-- 페이지 이름 공간 -->
-            <TextView
-                android:layout_width="359dp"
-                android:layout_height="match_parent"
-                android:background="#CBD5DD"
-                android:gravity="center"
-                android:text="공구합시당! 게시글 내용"
-                android:textSize="30sp"
-                android:typeface="monospace" />
-        </LinearLayout>
-
         <!-- 게시글 내용 출력 공간 -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +22,7 @@
             android:orientation="vertical">
 
             <!-- 제목 공간 -->
-            <EditText
+            <TextView
                 android:id="@+id/titleEditText"
                 android:layout_width="371dp"
                 android:layout_height="50dp"
@@ -54,7 +30,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:hint="제목을 입력하시오"
+                android:hint="제목 출력란"
+                android:textColor="#000000"
+                android:textSize="25sp"
                 android:inputType="text" />
 
             <!-- 게시글 사진, 모집인원, 참가하기 버튼 공간 -->
@@ -87,13 +65,14 @@
                     android:typeface="monospace" />
 
                 <!-- 모집인원 공간 -->
-                <EditText
+                <TextView
                     android:id="@+id/limitEditText"
                     android:layout_width="70dp"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
+                    android:textSize="25sp"
                     android:ems="10"
                     android:inputType="text" />
 
@@ -115,16 +94,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-170dp"
                     android:layout_marginTop="80dp"
-                    android:backgroundTint="#CBD5DD"
+                    android:backgroundTint="#6200EE"
                     android:text="참가하기"
-                    android:textColor="#000000" />
+                    android:textColor="#FFFFFF" />
 
             </LinearLayout>
 
             <!-- 게시글 내용 공간 -->
             <EditText
                 android:id="@+id/contentEditText"
-                android:layout_width="401dp"
+                android:layout_width="370dp"
                 android:layout_height="419dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -144,9 +123,9 @@
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#6200EE"
                 android:text="로그아웃"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 tools:layout_editor_absoluteX="-40dp"
                 tools:layout_editor_absoluteY="100dp" />
         </LinearLayout>
@@ -156,4 +135,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

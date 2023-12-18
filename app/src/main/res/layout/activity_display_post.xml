@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="bold"
@@ -11,32 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- 페이지 위 부분 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- 공구합시당 사진 공간 -->
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="0"
-                android:src="@drawable/main_logo"
-                android:text="로그인" />
-
-            <!-- 페이지 이름 공간 -->
-            <TextView
-                android:layout_width="359dp"
-                android:layout_height="match_parent"
-                android:background="#CBD5DD"
-                android:gravity="center"
-                android:text="공구합시당! 게시글 목록"
-                android:textSize="30sp"
-                android:typeface="monospace" />
-        </LinearLayout>
-
         <!-- 선택한 조건 출력 공간 -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,8 +22,8 @@
                     android:id="@+id/departmentShowText"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
                     android:gravity="center"
+                    android:textColor="#000000"
                     android:text="조건:"
                     android:textSize="30sp"
                     android:typeface="monospace" />
@@ -59,7 +33,6 @@
                     android:id="@+id/categoryShowText"
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
                     android:gravity="center"
                     android:text="학과명"
                     android:textSize="30sp"
@@ -69,408 +42,26 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
                     android:gravity="center"
                     android:text="카테고리"
                     android:textSize="30sp"
                     android:typeface="monospace" />
             </LinearLayout>
-
-        <!-- 글목록 공간 -->
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- 첫 번째 글 번호 -->
-            <TextView
-                android:id="@+id/display1text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="1"/>
-
-            <!-- 첫 번째 글 제목 -->
-            <Button
-                android:id="@+id/display1button"
-                android:layout_width="229dp"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <!-- 첫 번째 글 생성날짜 -->
-            <TextView
-                android:id="@+id/display1date"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <!-- 첫 번째 글 잔여인원수/최대인원수 -->
-            <TextView
-                android:id="@+id/display1limit"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="제한"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="-109dp"/>
-        </LinearLayout>
-
-        <!-- 첫 번째 글 양식과 동일 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/display2text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="2"/>
-
-            <Button
-                android:id="@+id/display2button"
-                android:layout_width="229dp"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/display2date"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/display2limit"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="제한"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="-109dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/display3text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="3"/>
-
-            <Button
-                android:id="@+id/display3button"
-                android:layout_width="229dp"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/display3date"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/display3limit"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="제한"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="-109dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/display4text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="4"/>
-
-            <Button
-                android:id="@+id/display4button"
-                android:layout_width="229dp"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/display4date"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/display4limit"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="제한"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="-109dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/display5text"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="5"/>
-
-            <Button
-                android:id="@+id/display5button"
-                android:layout_width="229dp"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="#00FFFFFF"
-                android:text="게시글 제목을 입력하시오"
-                android:textColor="#AAAAAA"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/display5date"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="생성날짜"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/display5limit"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="제한"
-                android:textColor="#AAAAAA"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="-109dp"/>
-        </LinearLayout>
-
-        <!-- 게시글 목록 이동 버튼들 모임 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- 앞 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/movefrontButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="왼"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move1Button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintWidth_percent="0.125" />
-            <!-- 1번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move1Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="1"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move2Button"
-                app:layout_constraintStart_toEndOf="@+id/movefrontButton"
-                app:layout_constraintWidth_percent="0.125" />
-            <!-- 2번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move2Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="2"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move3Button"
-                app:layout_constraintStart_toEndOf="@+id/move1Button"
-                app:layout_constraintWidth_percent="0.125"/>
-            <!-- 3번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move3Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="3"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move4Button"
-                app:layout_constraintStart_toEndOf="@+id/move2Button"
-                app:layout_constraintWidth_percent="0.125"/>
-            <!-- 4번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move4Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="4"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move5Button"
-                app:layout_constraintStart_toEndOf="@+id/move3Button"
-                app:layout_constraintWidth_percent="0.125"/>
-            <!-- 5번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move5Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="5"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move6Button"
-                app:layout_constraintStart_toEndOf="@+id/move4Button"
-                app:layout_constraintWidth_percent="0.125"/>
-            <!-- 6번 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/move6Button"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="6"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toStartOf="@+id/move7Button"
-                app:layout_constraintStart_toEndOf="@+id/move5Button"
-                app:layout_constraintWidth_percent="0.125"/>
-            <!-- 다음 게시글 목록으로 이동 버튼 -->
-            <Button
-                android:id="@+id/movebackButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#CBD5DD"
-                android:text="오"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/move6Button"
-                app:layout_constraintWidth_percent="0.125" />
-        </LinearLayout>
+            android:layout_height="350dp"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="100dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <!-- 게시글 검색 버튼 공간 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.075"
-            android:orientation="horizontal">
 
-            <!-- 검색할 게시글 이름 입력 버튼 -->
-            <EditText
-                android:id="@+id/searchEditText"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:ems="10"
-                android:hint="제목을 입력하시오"
-                android:inputType="text" />
-
-            <!-- 게시글 검색 버튼 -->
-            <Button
-                android:id="@+id/searchButton"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
-                android:text="검색"
-                android:textColor="#000000"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.075">
-
-            <!-- 로그아웃 버튼 -->
-            <Button
-                android:id="@+id/writeButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
-                android:text="글쓰기"
-                android:textColor="#000000"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -480,17 +71,81 @@
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#CBD5DD"
+                android:backgroundTint="#6200EE"
                 android:text="로그아웃"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 tools:layout_editor_absoluteX="-40dp"
                 tools:layout_editor_absoluteY="100dp" />
+
         </LinearLayout>
 
 
     </LinearLayout>
 
+    <!-- 게시글 추가 버튼 -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddPost_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/baseline_mode_edit_24"
+        app:backgroundTint="#49B7C5"
+        app:borderWidth="0dp"
+        app:elevation="8dp" />
 
+    <!-- 나의 게시글 버튼-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/MyPost_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
 
+        app:backgroundTint="#E6675E"
+        app:borderWidth="0dp"
+        app:elevation="8dp"
+        app:srcCompat="@drawable/baseline_perm_identity_24" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 검색 버튼-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Search_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:backgroundTint="#F3DE2D"
+        app:borderWidth="0dp"
+        app:elevation="8dp"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+    <!-- 메뉴 보기 버튼-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/MenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:backgroundTint="#8A67C8"
+        app:borderWidth="0dp"
+        app:elevation="8dp"
+        app:srcCompat="@drawable/baseline_menu_24" />
+
+</RelativeLayout>
