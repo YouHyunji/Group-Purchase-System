@@ -17,38 +17,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <!-- '조건:' 단어 출력 공간 -->
+                <!-- '검색어:' 단어 출력 공간 -->
                 <TextView
                     android:id="@+id/departmentShowText"
-                    android:layout_width="100dp"
+                    android:layout_width="116dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:text="검색어:"
                     android:textColor="#000000"
-                    android:text="조건:"
                     android:textSize="30sp"
                     android:typeface="monospace" />
 
-                <!-- 학과명 공간 -->
+                <!-- 검색단어 공간 -->
                 <TextView
                     android:id="@+id/categoryShowText"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="학과명"
-                    android:textSize="30sp"
-                    android:typeface="monospace" />
-
-                <!-- 카테고리명 공간 -->
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="카테고리"
+                    android:text="검색단어"
                     android:textSize="30sp"
                     android:typeface="monospace" />
+
             </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/main_recyclerview"
+            android:id="@+id/search_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:layout_margin="16dp"
