@@ -26,6 +26,7 @@
             android:exported="false" />
         <activity android:name=".Object_Category" />
         <activity android:name=".Major_Category" />
+        <activity android:name=".Search_Result" />
 
     </application>
 
