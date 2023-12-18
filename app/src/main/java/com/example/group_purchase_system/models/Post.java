@@ -5,7 +5,7 @@ import com.google.firebase.firestore.ServerTimestamp;
 import java.util.Date;
 
 public class Post {
-    public Post() {
+    public Post(String title, String contents, String name) {
     }
 
     private  String documentId;

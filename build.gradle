@@ -1,6 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        // 기타 저장소 추가 가능
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.0' // 안드로이드 플러그인 버전에 맞게 변경
+        classpath 'com.google.gms:google-services:4.3.4' // Google Services 플러그인 추가
+    }
+}
+
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
     id 'com.google.gms.google-services' version '4.4.0' apply false
 }
+
+

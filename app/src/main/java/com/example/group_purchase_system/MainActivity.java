@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.ObjectAnimator;
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.group_purchase_system.adapters.PostAdapter;
@@ -64,11 +66,13 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);     // 보여지는 화면
 
         // 현재 로그인 되어있는지 확인 ( 현재 사용자 불러오기 )
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        TextView myTextView = findViewById(R.id.item_post_title);
+
 
         if (user == null) {   // 로그인이 안되어있을 경우 (유저가 없을 경우)
             myStartActivity(LoginActivity.class);      // 로그인 창으로 이동
@@ -102,7 +106,7 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         }
 
         // inflate된 레이아웃에서 버튼 찾아 초기화
-       Button logoutButton = findViewById(R.id.logoutButton);       // 로그아웃 버튼
+        Button logoutButton = findViewById(R.id.logoutButton);       // 로그아웃 버튼
         Button Major_Category = findViewById(R.id.Major_Category);  // 학과 카테고리 버튼
         AddPost_Button = findViewById(R.id.AddPost_Button);         // 게시글 추가 버튼
         MyPost_Button = findViewById(R.id.MyPost_Button);           // 나의 게시글 보기 버튼
@@ -184,7 +188,6 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         super.onStart();
         mDatas =new ArrayList<>();
         db.collection(Board_contents.post)
-                .orderBy(Board_contents.timestamp, Query.Direction.DESCENDING)      // 게시글 정렬
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -200,10 +203,27 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
                             }
                             mAdapter = new PostAdapter(mDatas);
                             mPostRecyclerView.setAdapter(mAdapter);
+
+                            mAdapter.setOnItemClickListener(new PostAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(Post post) {
+                                    // 클릭된 아이템의 데이터를 가져옴
+                                    String name = post.getName();
+
+                                    // DetailActivity로 이동하는 Intent 설정
+                                    Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                                    intent.putExtra("name", name);
+                                    startActivity(intent); // DetailActivity 시작
+                                }
+                            });
                         }
                     }
                 });
     }
+
+
+
+
 
     public void ActionButton() {
         Log.d(TAG, "isMenuOpen = " + isMenuOpen);
