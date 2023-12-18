@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="bold"
     android:layout_width="match_parent"
     android:background="#EAEAEA"
@@ -14,68 +11,44 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <!-- 레이아웃 설명(학과선택) 공간 -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="학과 선택"
-            android:textSize="20sp"
-            android:typeface="monospace" />
-
-        <!-- 학과선택 공간 -->
-
-        <!-- 레이아웃 설명(최신글) 공간 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0">
-
-            <!-- 소프트웨어학과 버튼 -->
-            <Button
-                android:id="@+id/Major_Category"
+        <!-- 선택한 조건 출력 공간 -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#6200EE"
-                android:text="학과 선택"
-                android:textColor="#FFFFFF"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="최신글"
-            android:textSize="20sp"
-            android:typeface="monospace" />
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+                android:orientation="horizontal">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/main_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:divider="@android:color/darker_gray"
-                android:dividerHeight="100dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-        </LinearLayout>
-        <!-- 빠른 이동 버튼이 위치하는 레이아웃 -->
+                <!-- '내 게시글' 단어 출력 공간 -->
+                <TextView
+                    android:id="@+id/departmentShowText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="내 게시글"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_post_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="100dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- 게시글 검색 버튼 공간 -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2">
+            android:layout_weight="0.075">
 
-            <!-- 로그아웃 버튼 -->
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="match_parent"
@@ -85,10 +58,11 @@
                 android:textColor="#FFFFFF"
                 tools:layout_editor_absoluteX="-40dp"
                 tools:layout_editor_absoluteY="100dp" />
-        </LinearLayout>
-    </LinearLayout>
 
-    <!-- 버튼 추가 -->
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <!-- 게시글 추가 버튼 -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -155,6 +129,5 @@
         app:borderWidth="0dp"
         app:elevation="8dp"
         app:srcCompat="@drawable/baseline_menu_24" />
-
 
 </RelativeLayout>

@@ -54,6 +54,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         Post data = datas.get(position);
         holder.title.setText(data.getTitle());
         holder.name.setText(data.getName());
+        //holder.contents.setText(data.getContents());
 
         holder.title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,12 +89,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     class PostViewHolder extends RecyclerView.ViewHolder{
 
         private TextView title;
+        //private TextView contents;
         private TextView name;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.item_post_title);
+            //contents = itemView.findViewById(R.id.item_post_contents);
             name = itemView.findViewById(R.id.item_post_name);
 
         }

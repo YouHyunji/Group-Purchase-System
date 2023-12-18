@@ -7,18 +7,28 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.group_purchase_system.R;
+import com.example.group_purchase_system.adapters.PostAdapter;
+import com.example.group_purchase_system.models.Post;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Search_Result extends AppCompatActivity {
     private static final String TAG = "Search_Result";     // TAG 추가
@@ -26,50 +36,56 @@ public class Search_Result extends AppCompatActivity {
     // 현재 로그인 되어있는지 확인 ( 현재 사용자 불러오기 )
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    private String Query;  // 받아온 검색어
+    private RecyclerView mPostRecyclerView;
+    private PostAdapter mAdapter;
+    private List<Post> mDatas;
+    private String Query_title;  // 받아온 검색어
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_basic_category);
+        setContentView(R.layout.activity_search_result);
 
         // Intent에서 데이터 받아오기
-        Query = getIntent().getStringExtra("query");  // 검색어
+        Query_title = getIntent().getStringExtra("query");  // 검색어
 
+        // RecyclerView 초기화
+        mPostRecyclerView = findViewById(R.id.search_result_view);
+        mDatas = new ArrayList<>();
+        mAdapter = new PostAdapter(mDatas);
+        mPostRecyclerView.setAdapter(mAdapter);
 
+        Search_Post(Query_title);
     }
 
     // 사용자가 검색한 게시글을 찾는 메서드
     private void Search_Post(String query_title) {
+        CollectionReference PostRef = db.collection("post");
 
-
-        CollectionReference PostRef = db.collection("post");        // 'post' 컬렉션 접근
-        // DocumentReference userDocRef = userRef.document(user.getUid());
-
-        Query query = PostRef.whereEqualTo("title", query_title);     // 검색한 내용과 일치하는 문서 찾기
+        // 'title' 필드 (제목)에 검색어가 포함된 게시글 검색
+        Query query = PostRef.whereEqualTo("title", query_title);
 
         query.get().addOnCompleteListener(task -> {
-            if (task.getResult().isEmpty()) {           // 쿼리 결과가 없으면
-                startToast("해당하는 게시글이 없습니다.");
-                Log.d(TAG, "Search_Post 메서드 : 게시글이 존재하지않음");
+            if (task.isSuccessful()) {
+                mDatas.clear();
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String name = document.getString(Board_contents.name);
+                    String title = document.getString(Board_contents.title);
+                    String contents = document.getString(Board_contents.contents);
+                    Post data = new Post(name, title, contents, name);
+                    mDatas.add(data);
+                }
+
+                if (mDatas.isEmpty()) {
+                    startToast("해당하는 게시글이 없습니다.");
+                } else {
+                    startToast(mDatas.size() + "개의 게시글이 검색되었습니다.");
+                }
+
+                mAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알리기
             } else {
-                // 쿼리 결과가 있는 경우
-                Log.d(TAG, "Search_Post 메서드 : 게시글 찾음");
-
-                // 쿼리 결과 출력하기 ( 수정 중 )
-                query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String Id = document.getId();    // 아이디 구하기
-
-                            }
-                        }
-                    }
-                });
+                Log.e(TAG, "검색 실패", task.getException());
             }
         });
     }

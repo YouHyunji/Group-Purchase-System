@@ -167,9 +167,6 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         mAdapter = new PostAdapter(mDatas);
         mPostRecyclerView.setAdapter(mAdapter);
 
-        // 게시글 추가
-        //findViewById(R.id.main_post_edit).setOnClickListener(this);
-
 
     }
     private void myStartActivity(Class c) {    // 원하는 화면으로 이동하는 함수 (화면 이동 함수)
@@ -289,7 +286,6 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
                 if(TextUtils.isEmpty(query)) {              // 입력된 검색어가 없을 때
                     startToast("검색어를 입력해주세요!");
                 } else {
-                    startToast("검색 기능 실행");
 
                     // 선택한 항목의 정보를 Intent에 담아 Search_Result.Class (검색결과창)를 시작
                     Intent intent = new Intent(MainActivity.this, Search_Result.class);

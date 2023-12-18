@@ -1,34 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/item_post_Picture"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:text="Picture" />
     <TextView
         android:id="@+id/item_post_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="151dp"
+        android:layout_height="75dp"
         android:layout_margin="8dp"
-        android:textSize="18sp"
+        android:text="TITLE"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:text="TITLE"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/item_post_contents"
-        android:layout_width="382dp"
-        android:layout_height="30dp"
-        android:textColor="@android:color/holo_blue_light"
-        android:layout_margin="8dp"
-        android:textSize="14sp"
-        android:text="Contents"/>
-
-    <TextView
-        android:id="@+id/item_post_name"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Name" />
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/item_post_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/item_post_timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Timestamp"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+            android:id="@+id/item_post_Like"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:text="Like" />
+            <TextView
+                android:id="@+id/divide"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="#000000"
+                android:text="/" />
+            <TextView
+                android:id="@+id/item_post_Limit"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Limit" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
