@@ -27,6 +27,8 @@
         <activity android:name=".Object_Category" />
         <activity android:name=".Major_Category" />
         <activity android:name=".Search_Result" />
+        <activity android:name=".My_Post" />
+        <activity android:name=".Board_List" />
 
     </application>
 
