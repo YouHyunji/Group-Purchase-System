@@ -73,11 +73,10 @@ public class Board_List extends AppCompatActivity {
         AddPost_Click = getIntent().getBooleanExtra("AddPost_Click", AddPost_Click);         // 게시글 추가 버튼 클릭
 
         // RecyclerView 초기화
-        mPostRecyclerView = findViewById(R.id.search_recyclerview);
+        mPostRecyclerView = findViewById(R.id.main_recyclerview);
         mDatas = new ArrayList<>();
         mAdapter = new PostAdapter(mDatas);
         mPostRecyclerView.setAdapter(mAdapter);
-
 
         // inflate된 레이아웃에서 버튼 찾아 초기화
         AddPost_Button = findViewById(R.id.AddPost_Button);         // 게시글 추가 버튼
