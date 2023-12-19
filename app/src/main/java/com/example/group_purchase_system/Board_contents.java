@@ -7,5 +7,7 @@ public class Board_contents {
     public static String title = "title";
     public static String contents = "contents";
     public static String timestamp = "timestamp";
+    public static String Major = "Major";
+    public static String Object = "Object";
 
 }
