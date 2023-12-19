@@ -94,9 +94,7 @@ public class Board_List extends AppCompatActivity {
         // 메뉴 선택하기 버튼 이벤트 처리 : 버튼 클릭했을 때 게시글 추가 & 내 게시글 보기 & 검색 버튼 나옴
         MenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ActionButton();             // 버튼 동작 실행 메서드
-            }
+            public void onClick(View view) { ActionButton(); }             // 버튼 동작 실행 메서드
         });
 
         // 게시글 추가 버튼 이벤트 처리
@@ -131,6 +129,8 @@ public class Board_List extends AppCompatActivity {
             @Override
             public void onClick(View view) { Search_Dialog(); }
         });
+
+        Search_Post();              // 게시글 출력
     }
 
 
@@ -227,5 +227,38 @@ public class Board_List extends AppCompatActivity {
     private void myStartActivity(Class c) {    // 원하는 화면으로 이동하는 함수 (화면 이동 함수)
         Intent intent = new Intent(this, c);
         startActivity(intent);
+    }
+
+    // 해당 카테고리에 게시글 리스트를 출력하는 메서드
+    protected void Search_Post() {
+
+        CollectionReference PostRef = db.collection("post");
+
+        // 게시글의 카테고리 검색
+        Query query = PostRef.whereEqualTo("Major", selected_Major)
+                        .whereEqualTo("Object", selected_Object);
+
+        query.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                mDatas.clear();
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String name = document.getString(Board_contents.name);
+                    String title = document.getString(Board_contents.title);
+                    String contents = document.getString(Board_contents.contents);
+                    Post data = new Post(name, title, contents, name);
+                    mDatas.add(data);
+                }
+
+                if (mDatas.isEmpty()) {
+                    startToast("작성한 게시글이 없습니다.");
+                } else {
+                    startToast(mDatas.size() + "개의 게시글이 검색되었습니다.");
+                }
+
+                mAdapter.notifyDataSetChanged(); // 어댑터에 데이터 변경 알리기
+            } else {
+                Log.e(TAG, "검색 실패", task.getException());
+            }
+        });
     }
 }

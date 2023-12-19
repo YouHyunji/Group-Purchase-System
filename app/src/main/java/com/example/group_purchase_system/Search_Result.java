@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -89,6 +90,13 @@ public class Search_Result extends AppCompatActivity {
             intent.putExtra("name", name); // DetailActivity에 필요한 데이터 전달
             startActivity(intent);
         });
+
+        TextView Search_Text = findViewById(R.id.SearchShowText);       // 상단바 검색어
+
+        // 상단바 검색어 출력
+        Search_Text.setText(Query_title);
+
+
 
         // 메뉴 선택하기 버튼 이벤트 처리 : 버튼 클릭했을 때 게시글 추가 & 내 게시글 보기 & 검색 버튼 나옴
         MenuButton.setOnClickListener(new View.OnClickListener() {
