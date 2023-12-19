@@ -215,8 +215,18 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
                                 String name = String.valueOf(shot.get(Board_contents.name));
                                 String title = String.valueOf(shot.get(Board_contents.title));
                                 String contents = String.valueOf(shot.get(Board_contents.contents));
-                                Post data = new Post(name, title, contents, name);
-                                mDatas.add(data);
+                               // Post data = new Post(name, title, contents, name);
+                               // mDatas.add(data);
+
+                                // 추가된 부분: 'Like' 변수가 3이면 해당 게시글을 삭제
+                                long likeCount = (long) shot.get("likes");
+                                if (likeCount != 2) {
+                                    Post data = new Post(name, title, contents, name);
+                                    mDatas.add(data);
+                                } else {
+                                    // 'Like'가 3인 경우 해당 게시글은 무시하고 건너뜀
+                                    // 삭제 작업 또는 특정 처리를 추가할 수 있습니다.
+                                }
                             }
                             mAdapter = new PostAdapter(mDatas);
                             mPostRecyclerView.setAdapter(mAdapter);
