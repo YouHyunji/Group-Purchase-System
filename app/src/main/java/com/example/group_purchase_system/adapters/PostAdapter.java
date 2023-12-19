@@ -72,7 +72,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                         // 예를 들어, 포스트 ID를 DetailActivity로 보내는 경우
                         intent.putExtra("title", datas.get(clickedPosition).getTitle());
                         intent.putExtra("name", datas.get(clickedPosition).getName());
-
+                        intent.putExtra("contents", datas.get(clickedPosition).getContents());
                         context.startActivity(intent);
                     }
                 }
