@@ -31,6 +31,8 @@
         </activity> 
 
         <activity android:name=".Search_Result" />
+        <activity android:name=".My_Post" />
+        <activity android:name=".Board_List" />
 
     </application>
 

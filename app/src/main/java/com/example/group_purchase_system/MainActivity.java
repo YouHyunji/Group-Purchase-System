@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
     private FloatingActionButton MyPost_Button;      // 내 게시글 보기 버튼
     private FloatingActionButton Search_Button;     // 검색 버튼
     private boolean isMenuOpen = false;     // 메뉴버튼 선택 여부
+
+    private boolean AddPost_Click;     // 글쓰기 버튼 클릭여부
     private static final String TAG = "MainActivity";     // TAG 추가
     private FirebaseAuth mAuth;
 
@@ -117,7 +119,15 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         Major_Category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myStartActivity(Major_Category.class);   // 학과 카테고리 이동
+                AddPost_Click = false;      // 글쓰기 버튼 클릭 여부 전송
+
+                // 선택한 항목의 정보를 Intent에 담아 Major_Category.Class를 시작
+                Intent intent = new Intent(MainActivity.this, Major_Category.class);
+                intent.putExtra("AddPost_Click", AddPost_Click);    // 학과 이름 전달
+
+                Log.d(TAG, "글쓰기 버튼 클릭 여부 전달 : " + AddPost_Click);
+
+                startActivity(intent);
             }
         });
 
@@ -142,7 +152,17 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         AddPost_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myStartActivity(PostActivity.class);        // 글쓰기 화면으로 이동
+
+                AddPost_Click = true;      // 글쓰기 버튼 클릭 여부 전송
+
+                // 선택한 항목의 정보를 Intent에 담아 Major_Category.Class를 시작
+                Intent intent = new Intent(MainActivity.this, Major_Category.class);
+                intent.putExtra("AddPost_Click", AddPost_Click);    // 학과 이름 전달
+
+                Log.d(TAG, "글쓰기 버튼 클릭 여부 전달 : " + AddPost_Click);
+
+                startActivity(intent);
+
             }
         });
 
@@ -150,8 +170,7 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         MyPost_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //myStartActivity(PostActivity.class);        // 글쓰기 화면으로 이동
-                startToast("나의 게시글 보기로 이동");
+                myStartActivity(My_Post.class);
             }
         });
 
