@@ -16,7 +16,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +25,11 @@
             android:exported="false" />
         <activity android:name=".Object_Category" />
         <activity android:name=".Major_Category" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="true">
+        </activity> 
+
         <activity android:name=".Search_Result" />
         <activity android:name=".My_Post" />
         <activity android:name=".Board_List" />

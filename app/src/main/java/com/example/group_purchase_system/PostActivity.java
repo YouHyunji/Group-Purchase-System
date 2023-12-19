@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -100,12 +101,16 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
         }
+
+        ImageView imageViewPreview = findViewById(R.id.imageViewPreview);
+        imageViewPreview.setImageURI(imageUri);
     }
 
 

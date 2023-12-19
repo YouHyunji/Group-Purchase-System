@@ -1,6 +1,7 @@
 package com.example.group_purchase_system;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -43,6 +44,15 @@ public class My_Post extends AppCompatActivity {
         mAdapter = new PostAdapter(mDatas);
         mPostRecyclerView.setAdapter(mAdapter);
 
+
+        mAdapter.setOnItemClickListener(post -> {
+            String name = post.getName();
+            // DetailActivity를 시작하고 필요한 데이터를 전달합니다
+            Intent intent = new Intent(My_Post.this, DetailActivity.class);
+            intent.putExtra("name", name); // DetailActivity에 필요한 데이터 전달
+            startActivity(intent);
+        });
+
         Search_MyPost();
     }
 
@@ -55,7 +65,6 @@ public class My_Post extends AppCompatActivity {
 
             // 현재 사용자의 게시글만 검색
             Query query = PostRef.whereEqualTo("userId", userId);
-
             query.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     mDatas.clear();
