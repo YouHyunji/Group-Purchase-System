@@ -89,6 +89,7 @@ public class DetailActivity extends AppCompatActivity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             CollectionReference postsRef = db.collection("post");
             String receivedTitle = intent.getStringExtra("title");
+            String PostId = db.collection(Board_contents.post).document().getId();
 
             postsRef.whereEqualTo("title", receivedTitle)
                     .get()

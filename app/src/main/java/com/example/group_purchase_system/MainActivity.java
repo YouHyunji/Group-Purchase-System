@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity  {  // AppCompatActivity : �
         super.onStart();
         mDatas =new ArrayList<>();
         db.collection(Board_contents.post)
+                .orderBy("timestamp", Query.Direction.DESCENDING) // "timestamp" 필드를 기준으로 내림차순 정렬 (최신순)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
