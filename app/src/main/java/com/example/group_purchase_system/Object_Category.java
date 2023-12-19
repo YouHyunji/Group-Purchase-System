@@ -39,6 +39,7 @@ public class Object_Category extends AppCompatActivity {
 
     private ListView listView;
     private String selected_Major;  // 학과 정보
+    private boolean AddPost_Click;      // 게시글 추가버튼 클릭여부
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,6 +51,7 @@ public class Object_Category extends AppCompatActivity {
 
         // Intent에서 데이터 받아오기
         selected_Major = getIntent().getStringExtra("selected_Major");  // 학과 정보
+        AddPost_Click = getIntent().getBooleanExtra("AddPost_Click", AddPost_Click);         // 게시글 추가 버튼 클릭
 
         // 리스트뷰와 어댑터 초기화
         listView = (ListView) findViewById(R.id.List);
@@ -94,15 +96,33 @@ public class Object_Category extends AppCompatActivity {
                     // 클릭한 아이템의 정보를 가져옴 : 아이템 이름
                     String selected_Object = ObjectRef.getName();
 
-                    // 선택한 항목의 정보를 Intent에 담아 Board_List.Class를 시작
-                    Intent intent = new Intent(Object_Category.this, PostActivity.class);
-                    intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
-                    intent.putExtra("selected_Object", selected_Object);    // 물품 이름 전달
+                    if(AddPost_Click) {     // 게시글 추가 버튼을 통해서 들어왔다면
+                                            // 게시글 작성 창으로 이동
 
-                    Log.d(TAG, "전달한 학과 이름 : " + selected_Major);
-                    Log.d(TAG, "전달한 물품 이름 : " + selected_Object);
+                        // 선택한 항목의 정보를 Intent에 담아 PostActivity.Class를 시작
+                        Intent intent = new Intent(Object_Category.this, PostActivity.class);
+                        intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
+                        intent.putExtra("selected_Object", selected_Object);    // 물품 이름 전달
 
-                    startActivity(intent);
+                        Log.d(TAG, "전달한 학과 이름 : " + selected_Major);
+                        Log.d(TAG, "전달한 물품 이름 : " + selected_Object);
+
+                        startActivity(intent);
+                    }
+                    else {          // '학과 선택' 버튼 통해서 들어왔다면
+                                    // 학과별 게시글 리스트 이동
+
+                        // 선택한 항목의 정보를 Intent에 담아 Board_List.Class를 시작
+                        Intent intent = new Intent(Object_Category.this, Board_List.class);
+                        intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
+                        intent.putExtra("selected_Object", selected_Object);    // 물품 이름 전달
+
+                        Log.d(TAG, "전달한 학과 이름 : " + selected_Major);
+                        Log.d(TAG, "전달한 물품 이름 : " + selected_Object);
+
+                        startActivity(intent);
+
+                    }
                 }
             });
 

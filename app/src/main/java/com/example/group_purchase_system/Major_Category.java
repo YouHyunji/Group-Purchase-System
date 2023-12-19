@@ -40,6 +40,7 @@ public class Major_Category extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private ListView listView;
+    private boolean AddPost_Click;      // 게시글 추가버튼 클릭여부
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,6 +49,9 @@ public class Major_Category extends AppCompatActivity {
         setContentView(R.layout.activity_basic_category);
 
         startToast("학과를 선택하세요.");
+
+        // Intent에서 데이터 받아오기
+        AddPost_Click = getIntent().getBooleanExtra("AddPost_Click", AddPost_Click);         // 게시글 추가 버튼 클릭
 
         // 리스트뷰와 어댑터 초기화
         listView = (ListView) findViewById(R.id.List);
@@ -95,8 +99,10 @@ public class Major_Category extends AppCompatActivity {
                             // 선택한 항목의 정보를 Intent에 담아 Object_Category.Class를 시작
                             Intent intent = new Intent(Major_Category.this, Object_Category.class);
                             intent.putExtra("selected_Major", selected_Major);    // 학과 이름 전달
+                            intent.putExtra("AddPost_Click", AddPost_Click);    // 글쓰기 버튼 선택 여부 전달
 
                             Log.d(TAG, "전달한 학과 이름 : " + selected_Major);
+                            Log.d(TAG, "글쓰기 버튼 클릭 여부 전달 : " + AddPost_Click);
 
                             startActivity(intent);
                 }
