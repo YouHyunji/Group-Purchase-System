@@ -47,6 +47,8 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
     private Uri imageUri;
 
     private String imageUrl;
+    private String selected_Major;  // 받아온 과목
+    private String selected_Object;  // 받아온 물품
 
     private EditText mTitle, mContents;
     private View.OnClickListener saveImageToFirestore;
@@ -56,6 +58,9 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+
+        selected_Major = getIntent().getStringExtra("selected_Major");  // 학과 정보
+        selected_Object = getIntent().getStringExtra("selected_Object");  // 물품 정보
 
         mTitle = findViewById(R.id.post_title_edit);
         mContents = findViewById(R.id.post_content_edit);
@@ -132,6 +137,8 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                             data.put(Board_contents.timestamp, FieldValue.serverTimestamp());
                             data.put("views", 0);
                             data.put("likes", 0);
+                            data.put(Board_contents.Major, selected_Major);        // 학과 카테고리
+                            data.put(Board_contents.Object, selected_Object);        // 물품 카테고리
 
                             // 이미지 URL을 Firestore에 저장하기 위해 이미지 업로드를 호출하고, 그 결과를 Firestore에 저장
                             if (imageUri != null) {
