@@ -30,7 +30,7 @@
 
                 <!-- 검색단어 공간 -->
                 <TextView
-                    android:id="@+id/categoryShowText"
+                    android:id="@+id/SearchShowText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -51,26 +51,7 @@
             android:divider="@android:color/darker_gray"
             android:dividerHeight="100dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <!-- 게시글 검색 버튼 공간 -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.075">
-
-            <Button
-                android:id="@+id/logoutButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#6200EE"
-                android:text="로그아웃"
-                android:textColor="#FFFFFF"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
-
-        </LinearLayout>
-
+        
 
     </LinearLayout>
 
