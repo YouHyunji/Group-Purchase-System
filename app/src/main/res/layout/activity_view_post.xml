@@ -23,7 +23,7 @@
 
             <!-- 제목 공간 -->
             <TextView
-                android:id="@+id/titleEditText"
+                android:id="@+id/titleTextView"
                 android:layout_width="371dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
@@ -44,7 +44,7 @@
 
                 <!-- 게시글 사진 -->
                 <ImageView
-                    android:id="@+id/pictureView"
+                    android:id="@+id/imageView"
                     android:layout_width="150dp"
                     android:layout_height="121dp"
                     android:layout_marginLeft="10dp"
@@ -66,7 +66,7 @@
 
                 <!-- 모집인원 공간 -->
                 <TextView
-                    android:id="@+id/limitEditText"
+                    android:id="@+id/likesTextView"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -89,7 +89,7 @@
 
                 <!-- 참가하기 버튼 -->
                 <Button
-                    android:id="@+id/joinButton"
+                    android:id="@+id/likeButton"
                     android:layout_width="147dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-170dp"
@@ -100,35 +100,60 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="300dp"
+                android:layout_height="44dp"
+                android:text="nameTextView"
+                android:textSize="30sp"
+                android:typeface="monospace"
+                tools:ignore="MissingConstraints" />
+
+
+            <TextView
+                android:id="@+id/viewsTextView"
+                android:layout_width="300dp"
+                android:layout_height="44dp"
+                android:text="viewsTextView"
+                android:typeface="monospace"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timestampTextView"
+                android:layout_width="300dp"
+                android:layout_height="44dp"
+                android:text="timestampTextView"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                android:textStyle="bold" />
+
             <!-- 게시글 내용 공간 -->
-            <EditText
-                android:id="@+id/contentEditText"
-                android:layout_width="370dp"
-                android:layout_height="419dp"
+
+            <TextView
+                android:id="@+id/contentsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
+                android:scrollHorizontally="true"
                 android:ems="10"
                 android:hint="내용을 입력하시오"
-                android:inputType="textEmailAddress" />
-        </LinearLayout>
+                android:maxLines="5"
+                android:textSize="30sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05">
-
-            <!-- 로그아웃 버튼 -->
             <Button
-                android:id="@+id/logoutButton"
-                android:layout_width="match_parent"
+                android:id="@+id/backToMainButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#6200EE"
-                android:text="로그아웃"
-                android:textColor="#FFFFFF"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="100dp" />
+                android:text="Back to Main"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="18dp"
+                tools:layout_editor_absoluteY="16dp" />
+
         </LinearLayout>
+
 
     </LinearLayout>
 

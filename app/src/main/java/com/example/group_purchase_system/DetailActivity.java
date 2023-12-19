@@ -41,7 +41,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_view_post);
 
         db = FirebaseFirestore.getInstance();
 
@@ -78,7 +78,7 @@ public class DetailActivity extends AppCompatActivity {
 
             titleTextView.setText("Title: " + title);
             contentsTextView.setText("Contents: " + contents);
-            likesTextView.setText("Likes: " + likes);
+            likesTextView.setText( " "+ likes);
             nameTextView.setText("Name: " + name);
             timestampTextView.setText("Timestamp: " + timestamp);
             viewsTextView.setText("Views: " + views2);
@@ -122,7 +122,7 @@ public class DetailActivity extends AppCompatActivity {
                                                                         viewsTextView.setText("Views: " + updatedViews);
                                                                         long updatedLikes = updatedDocument.getLong("likes");
                                                                         // Likes 값 TextView에 표시
-                                                                        likesTextView.setText("Likes: " + updatedLikes);
+                                                                        likesTextView.setText(" " + updatedLikes);
 
 
                                                                         Timestamp timestamp = document.getTimestamp("timestamp");
@@ -224,7 +224,7 @@ public class DetailActivity extends AppCompatActivity {
                                                                                 if (updatedDocument.exists()) {
                                                                                     long updatedLikes = updatedDocument.getLong("likes");
                                                                                     // Likes 값 TextView에 표시
-                                                                                    likesTextView.setText("Likes: " + updatedLikes);
+                                                                                    likesTextView.setText(" " + updatedLikes);
                                                                                 }
                                                                             }
                                                                         }
