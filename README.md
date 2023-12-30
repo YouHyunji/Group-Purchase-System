@@ -5,7 +5,8 @@
 사용자들이 쉽게 공동 구매를 조직하고 참여할 수 있도록 도와주는 애플리케이션
 
 ## 🛠 기술 및 도구
-Java AndroidStudio Firebase GitHub
+<img src="https://img.shields.io/badge/JAVA-007396?
+          style=flat&logo=Java&logoColor=white"/>
 
 ## ✅ 주요 기능
 
