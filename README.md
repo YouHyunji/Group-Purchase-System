@@ -4,11 +4,15 @@
 다양한 기능과 편의성을 제공하여, 
 사용자들이 쉽게 공동 구매를 조직하고 참여할 수 있도록 도와주는 애플리케이션
 
+<br>
+
 ## 🛠 기술 및 도구
 ![Java](https://img.shields.io/badge/JAVA-007396?style=flat-square&logo=java&logoColor=white) 
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=flat-square&logo=Android&logoColor=white) 
 ![Firebase](https://img.shields.io/badge/Firebase-%23039BE5.svg?style=flat-square&logo=firebase)
 ![GitHub](https://img.shields.io/badge/Github-%23121011.svg?style=flat-square&logo=github&logoColor=white)
+
+<br>
 
 ## ✅ 주요 기능
 
